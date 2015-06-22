@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BCB66E3B1B38CF5200107EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB66E3A1B38CF5200107EDA /* AppDelegate.swift */; };
+		BCB66E3E1B38CF5200107EDA /* Smart_Planner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCB66E3C1B38CF5200107EDA /* Smart_Planner.xcdatamodeld */; };
+		BCB66E401B38CF5200107EDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB66E3F1B38CF5200107EDA /* ViewController.swift */; };
+		BCB66E431B38CF5200107EDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCB66E411B38CF5200107EDA /* Main.storyboard */; };
+		BCB66E451B38CF5200107EDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCB66E441B38CF5200107EDA /* Images.xcassets */; };
+		BCB66E481B38CF5200107EDA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB66E461B38CF5200107EDA /* LaunchScreen.xib */; };
+		BCB66E541B38CF5200107EDA /* Smart_PlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB66E531B38CF5200107EDA /* Smart_PlannerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCB66E4E1B38CF5200107EDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCB66E2D1B38CF5200107EDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCB66E341B38CF5200107EDA;
+			remoteInfo = "Smart Planner";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BCB66E351B38CF5200107EDA /* Smart Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCB66E391B38CF5200107EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCB66E3A1B38CF5200107EDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BCB66E3D1B38CF5200107EDA /* Smart_Planner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Smart_Planner.xcdatamodel; sourceTree = "<group>"; };
+		BCB66E3F1B38CF5200107EDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BCB66E421B38CF5200107EDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCB66E441B38CF5200107EDA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BCB66E471B38CF5200107EDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BCB66E4D1B38CF5200107EDA /* Smart PlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart PlannerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCB66E521B38CF5200107EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCB66E531B38CF5200107EDA /* Smart_PlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_PlannerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCB66E321B38CF5200107EDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCB66E4A1B38CF5200107EDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCB66E2C1B38CF5200107EDA = {
+			isa = PBXGroup;
+			children = (
+				BCB66E371B38CF5200107EDA /* Smart Planner */,
+				BCB66E501B38CF5200107EDA /* Smart PlannerTests */,
+				BCB66E361B38CF5200107EDA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCB66E361B38CF5200107EDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCB66E351B38CF5200107EDA /* Smart Planner.app */,
+				BCB66E4D1B38CF5200107EDA /* Smart PlannerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCB66E371B38CF5200107EDA /* Smart Planner */ = {
+			isa = PBXGroup;
+			children = (
+				BCB66E3A1B38CF5200107EDA /* AppDelegate.swift */,
+				BCB66E3F1B38CF5200107EDA /* ViewController.swift */,
+				BCB66E411B38CF5200107EDA /* Main.storyboard */,
+				BCB66E441B38CF5200107EDA /* Images.xcassets */,
+				BCB66E461B38CF5200107EDA /* LaunchScreen.xib */,
+				BCB66E3C1B38CF5200107EDA /* Smart_Planner.xcdatamodeld */,
+				BCB66E381B38CF5200107EDA /* Supporting Files */,
+			);
+			path = "Smart Planner";
+			sourceTree = "<group>";
+		};
+		BCB66E381B38CF5200107EDA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCB66E391B38CF5200107EDA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCB66E501B38CF5200107EDA /* Smart PlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCB66E531B38CF5200107EDA /* Smart_PlannerTests.swift */,
+				BCB66E511B38CF5200107EDA /* Supporting Files */,
+			);
+			path = "Smart PlannerTests";
+			sourceTree = "<group>";
+		};
+		BCB66E511B38CF5200107EDA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCB66E521B38CF5200107EDA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCB66E341B38CF5200107EDA /* Smart Planner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCB66E571B38CF5200107EDA /* Build configuration list for PBXNativeTarget "Smart Planner" */;
+			buildPhases = (
+				BCB66E311B38CF5200107EDA /* Sources */,
+				BCB66E321B38CF5200107EDA /* Frameworks */,
+				BCB66E331B38CF5200107EDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart Planner";
+			productName = "Smart Planner";
+			productReference = BCB66E351B38CF5200107EDA /* Smart Planner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCB66E4C1B38CF5200107EDA /* Smart PlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCB66E5A1B38CF5200107EDA /* Build configuration list for PBXNativeTarget "Smart PlannerTests" */;
+			buildPhases = (
+				BCB66E491B38CF5200107EDA /* Sources */,
+				BCB66E4A1B38CF5200107EDA /* Frameworks */,
+				BCB66E4B1B38CF5200107EDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCB66E4F1B38CF5200107EDA /* PBXTargetDependency */,
+			);
+			name = "Smart PlannerTests";
+			productName = "Smart PlannerTests";
+			productReference = BCB66E4D1B38CF5200107EDA /* Smart PlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCB66E2D1B38CF5200107EDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Mark Zhang";
+				TargetAttributes = {
+					BCB66E341B38CF5200107EDA = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					BCB66E4C1B38CF5200107EDA = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = BCB66E341B38CF5200107EDA;
+					};
+				};
+			};
+			buildConfigurationList = BCB66E301B38CF5200107EDA /* Build configuration list for PBXProject "Smart Planner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCB66E2C1B38CF5200107EDA;
+			productRefGroup = BCB66E361B38CF5200107EDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCB66E341B38CF5200107EDA /* Smart Planner */,
+				BCB66E4C1B38CF5200107EDA /* Smart PlannerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCB66E331B38CF5200107EDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCB66E431B38CF5200107EDA /* Main.storyboard in Resources */,
+				BCB66E481B38CF5200107EDA /* LaunchScreen.xib in Resources */,
+				BCB66E451B38CF5200107EDA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCB66E4B1B38CF5200107EDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCB66E311B38CF5200107EDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCB66E401B38CF5200107EDA /* ViewController.swift in Sources */,
+				BCB66E3E1B38CF5200107EDA /* Smart_Planner.xcdatamodeld in Sources */,
+				BCB66E3B1B38CF5200107EDA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCB66E491B38CF5200107EDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCB66E541B38CF5200107EDA /* Smart_PlannerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCB66E4F1B38CF5200107EDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCB66E341B38CF5200107EDA /* Smart Planner */;
+			targetProxy = BCB66E4E1B38CF5200107EDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BCB66E411B38CF5200107EDA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCB66E421B38CF5200107EDA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BCB66E461B38CF5200107EDA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCB66E471B38CF5200107EDA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BCB66E551B38CF5200107EDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BCB66E561B38CF5200107EDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCB66E581B38CF5200107EDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Smart Planner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BCB66E591B38CF5200107EDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Smart Planner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BCB66E5B1B38CF5200107EDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Smart PlannerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Planner.app/Smart Planner";
+			};
+			name = Debug;
+		};
+		BCB66E5C1B38CF5200107EDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Smart PlannerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Planner.app/Smart Planner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCB66E301B38CF5200107EDA /* Build configuration list for PBXProject "Smart Planner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCB66E551B38CF5200107EDA /* Debug */,
+				BCB66E561B38CF5200107EDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCB66E571B38CF5200107EDA /* Build configuration list for PBXNativeTarget "Smart Planner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCB66E581B38CF5200107EDA /* Debug */,
+				BCB66E591B38CF5200107EDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BCB66E5A1B38CF5200107EDA /* Build configuration list for PBXNativeTarget "Smart PlannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCB66E5B1B38CF5200107EDA /* Debug */,
+				BCB66E5C1B38CF5200107EDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BCB66E3C1B38CF5200107EDA /* Smart_Planner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BCB66E3D1B38CF5200107EDA /* Smart_Planner.xcdatamodel */,
+			);
+			currentVersion = BCB66E3D1B38CF5200107EDA /* Smart_Planner.xcdatamodel */;
+			path = Smart_Planner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BCB66E2D1B38CF5200107EDA /* Project object */;
+}

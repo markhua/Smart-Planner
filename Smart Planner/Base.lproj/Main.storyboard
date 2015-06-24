@@ -170,7 +170,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1MH-qW-G6U">
+                            <imageView userInteractionEnabled="NO" alpha="0.39999999999999997" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1MH-qW-G6U">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="5O0-fn-o2Z"/>
@@ -194,8 +194,8 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tz-6z-fBt">
-                                <rect key="frame" x="38" y="81" width="300" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tz-6z-fBt">
+                                <rect key="frame" x="38" y="81" width="300" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="yHV-bu-S2I"/>
                                 </constraints>
@@ -204,8 +204,32 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5h-xp-CFs">
+                                <rect key="frame" x="16" y="550" width="558" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add this plan!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When do you plan to go?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWA-yF-dPW">
+                                <rect key="frame" x="150" y="380" width="300" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="W3i-J4-2OB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tXV-7A-L9c">
+                                <rect key="frame" x="0.0" y="250" width="600" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="GKX-rc-CyZ"/>
+                                </constraints>
+                            </mapView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-2F-E3w">
-                                <rect key="frame" x="0.0" y="289" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="399" width="600" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="G9j-hf-RBp"/>
                                     <constraint firstAttribute="height" constant="100" id="xy2-aC-3zu"/>
@@ -219,28 +243,11 @@
                                     </mask>
                                 </variation>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When do you plan to go?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWA-yF-dPW">
-                                <rect key="frame" x="150" y="263" width="300" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="W3i-J4-2OB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5h-xp-CFs">
-                                <rect key="frame" x="16" y="550" width="558" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Create the plan!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cXh-Sh-Q8G" firstAttribute="top" secondItem="JQo-ah-eL9" secondAttribute="bottom" constant="20" id="1gV-oS-eaP"/>
+                            <constraint firstItem="tXV-7A-L9c" firstAttribute="top" secondItem="4Tz-6z-fBt" secondAttribute="bottom" id="2y6-Yk-031"/>
                             <constraint firstItem="4Tz-6z-fBt" firstAttribute="top" secondItem="cXh-Sh-Q8G" secondAttribute="bottom" constant="20" id="3hD-3Y-e0c"/>
                             <constraint firstItem="4Tz-6z-fBt" firstAttribute="leading" secondItem="1MH-qW-G6U" secondAttribute="trailing" constant="10" id="6pV-G6-sse"/>
                             <constraint firstItem="kSm-2F-E3w" firstAttribute="top" secondItem="1MH-qW-G6U" secondAttribute="bottom" constant="40" id="7oS-ff-I3I"/>
@@ -250,15 +257,18 @@
                             <constraint firstItem="cXh-Sh-Q8G" firstAttribute="leading" secondItem="H5y-gF-6Ve" secondAttribute="leadingMargin" constant="22" id="Bva-ka-lhy"/>
                             <constraint firstItem="1MH-qW-G6U" firstAttribute="top" secondItem="4Tz-6z-fBt" secondAttribute="bottom" constant="-83" id="CrU-TR-lhj"/>
                             <constraint firstItem="1MH-qW-G6U" firstAttribute="top" secondItem="H5y-gF-6Ve" secondAttribute="topMargin" id="H0l-X1-kQG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tXV-7A-L9c" secondAttribute="trailing" constant="-16" id="Kff-Fw-Mib"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1MH-qW-G6U" secondAttribute="trailing" constant="-16" id="Rar-Hi-UcE"/>
-                            <constraint firstItem="RWA-yF-dPW" firstAttribute="top" secondItem="1MH-qW-G6U" secondAttribute="bottom" constant="13" id="Rjb-o5-Qqp"/>
+                            <constraint firstItem="RWA-yF-dPW" firstAttribute="top" secondItem="1MH-qW-G6U" secondAttribute="bottom" constant="130" id="Rjb-o5-Qqp"/>
                             <constraint firstItem="1MH-qW-G6U" firstAttribute="leading" secondItem="H5y-gF-6Ve" secondAttribute="leadingMargin" constant="-16" id="RsJ-IV-GcX"/>
+                            <constraint firstItem="tXV-7A-L9c" firstAttribute="leading" secondItem="H5y-gF-6Ve" secondAttribute="leadingMargin" constant="-16" id="U6n-Qy-kll"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kSm-2F-E3w" secondAttribute="trailing" constant="-16" id="Ulh-Rc-8nq"/>
                             <constraint firstItem="cDl-3d-JBo" firstAttribute="top" secondItem="J5h-xp-CFs" secondAttribute="bottom" constant="20" id="VBX-UJ-l73"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J5h-xp-CFs" secondAttribute="trailing" constant="10" id="X4l-sX-2gf"/>
                             <constraint firstItem="J5h-xp-CFs" firstAttribute="leading" secondItem="H5y-gF-6Ve" secondAttribute="leadingMargin" id="ZMO-Us-I1t"/>
                             <constraint firstItem="4Tz-6z-fBt" firstAttribute="top" secondItem="H5y-gF-6Ve" secondAttribute="topMargin" constant="80" id="akU-J0-TkN"/>
-                            <constraint firstItem="kSm-2F-E3w" firstAttribute="top" secondItem="1MH-qW-G6U" secondAttribute="bottom" constant="70" id="lvr-OM-BNm"/>
+                            <constraint firstItem="tXV-7A-L9c" firstAttribute="top" secondItem="1MH-qW-G6U" secondAttribute="bottom" id="h9j-mE-Udj"/>
+                            <constraint firstItem="kSm-2F-E3w" firstAttribute="top" secondItem="1MH-qW-G6U" secondAttribute="bottom" constant="180" id="lvr-OM-BNm"/>
                             <constraint firstItem="4Tz-6z-fBt" firstAttribute="leading" secondItem="H5y-gF-6Ve" secondAttribute="leadingMargin" constant="22" id="rfh-gC-EZa"/>
                             <constraint firstItem="1MH-qW-G6U" firstAttribute="top" secondItem="cXh-Sh-Q8G" secondAttribute="bottom" constant="-34" id="u14-41-ILh"/>
                             <constraint firstItem="kSm-2F-E3w" firstAttribute="leading" secondItem="H5y-gF-6Ve" secondAttribute="leadingMargin" constant="-16" id="xKB-32-K7H"/>
@@ -274,6 +284,7 @@
                                 <exclude reference="6pV-G6-sse"/>
                                 <exclude reference="ApU-bR-PhY"/>
                                 <exclude reference="akU-J0-TkN"/>
+                                <exclude reference="2y6-Yk-031"/>
                                 <exclude reference="7oS-ff-I3I"/>
                                 <exclude reference="AqB-Ee-Xmk"/>
                             </mask>
@@ -284,6 +295,7 @@
                         <outlet property="addPlanButton" destination="J5h-xp-CFs" id="7Mz-RO-BHW"/>
                         <outlet property="datePicker" destination="kSm-2F-E3w" id="Rv8-ID-OeK"/>
                         <outlet property="imageView" destination="1MH-qW-G6U" id="hz1-cz-uhu"/>
+                        <outlet property="mapView" destination="tXV-7A-L9c" id="GMU-aI-9Kj"/>
                         <outlet property="nameTextField" destination="cXh-Sh-Q8G" id="y64-Nf-LK2"/>
                     </connections>
                 </viewController>

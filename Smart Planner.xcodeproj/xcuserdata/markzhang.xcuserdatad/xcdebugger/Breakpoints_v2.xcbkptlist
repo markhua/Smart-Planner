@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smart Planner/VenueClient.swift"
-            timestampString = "456806699.816368"
+            timestampString = "456828905.156288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "getVenuesFromFoursquare(_:query:view:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -31,8 +31,6 @@ class VenueClient {
         if latitude != nil && longitude != nil {
             let lat = Double(round(10*latitude!)/10)
             let long = Double(round(10*longitude!)/10)
-            println(lat)
-            println(long)
             methodArguments["ll"] = "\(lat),\(long)"
         }
         
@@ -76,14 +74,19 @@ class VenueClient {
         let venueName = venue["name"] as? String
         let venueRating = venue["rating"] as? Float
         var venueAddr: String?
+        var lat: Double?
+        var long: Double?
         
         if let location = venue["location"] as? [String: AnyObject]{
             if let Addr1 = location["address"] as? String {
                 venueAddr = Addr1
+                lat = location["lat"] as? Double
+                long = location["lng"] as? Double
                 if let Addr2 = location["crossStreet"] as? String {
                     venueAddr = "\(Addr1), \(Addr2)"
                 }
             }
+            
         }
 
         if let photo = venue["featuredPhotos"] as? [String: AnyObject]{
@@ -95,8 +98,7 @@ class VenueClient {
                 if let checkedUrl = NSURL(string: photourl) {
                     self.getDataFromUrl(checkedUrl) { data in
                         if let image = UIImage(data: data!) {
-                            self.locations.append(Venue(Name: venueName, Photo: image, Rating: venueRating, Addr: venueAddr))
-                            println("venue created")
+                            self.locations.append(Venue(Name: venueName, Photo: image, Rating: venueRating, Addr: venueAddr, Lat: lat, Long: long))
                             dispatch_async(dispatch_get_main_queue()){
                                 view.reloadData()
                             }

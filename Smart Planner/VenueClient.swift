@@ -98,7 +98,7 @@ class VenueClient {
                 if let checkedUrl = NSURL(string: photourl) {
                     self.getDataFromUrl(checkedUrl) { data in
                         if let image = UIImage(data: data!) {
-                            self.locations.append(Venue(Name: venueName, Photo: image, Rating: venueRating, Addr: venueAddr, Lat: lat, Long: long))
+                            self.locations.append(Venue(Name: venueName, Photo: image, PhotoURL: photourl, Rating: venueRating, Addr: venueAddr, Lat: lat, Long: long))
                             dispatch_async(dispatch_get_main_queue()){
                                 view.reloadData()
                             }

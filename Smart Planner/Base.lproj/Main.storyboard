@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="773" y="81"/>
+            <point key="canvasLocation" x="-401" y="741"/>
         </scene>
         <!--Plan Detail View Controller-->
         <scene sceneID="iPc-vn-ubJ">
@@ -212,6 +212,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addPlan:" destination="2Md-vy-Nr2" eventType="touchUpInside" id="RVV-uh-ZCk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When do you plan to go?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWA-yF-dPW">
                                 <rect key="frame" x="150" y="380" width="300" height="21"/>
@@ -242,6 +245,9 @@
                                         <exclude reference="G9j-hf-RBp"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="updateDate:" destination="2Md-vy-Nr2" eventType="valueChanged" id="HZh-wO-y9y"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -301,7 +307,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6MJ-Mq-ZJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1434" y="180"/>
+            <point key="canvasLocation" x="555" y="777"/>
+        </scene>
+        <!--Plan List View Controller-->
+        <scene sceneID="v4i-0x-kgH">
+            <objects>
+                <tableViewController id="zOD-2K-Xoh" customClass="PlanListViewController" customModule="Smart_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Nbf-HU-mBA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlanCell" id="mpQ-uz-dbJ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpQ-uz-dbJ" id="WSL-zw-n8s">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zOD-2K-Xoh" id="4TZ-UJ-jcm"/>
+                            <outlet property="delegate" destination="zOD-2K-Xoh" id="S4m-Hx-OQk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="IAh-eb-U0H">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="V5C-6z-0eb">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" id="OoR-17-lC8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQx-bN-MSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="555" y="11"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PqF-3A-3Eq">
@@ -312,12 +351,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="gHc-dE-30v"/>
+                        <segue destination="zOD-2K-Xoh" kind="relationship" relationship="rootViewController" id="oiw-EW-22n"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvh-vn-T0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="81"/>
+            <point key="canvasLocation" x="-401" y="11"/>
         </scene>
     </scenes>
 </document>

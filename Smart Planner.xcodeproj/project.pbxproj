@@ -21,6 +21,8 @@
 		BCB66E481B38CF5200107EDA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB66E461B38CF5200107EDA /* LaunchScreen.xib */; };
 		BCB66E541B38CF5200107EDA /* Smart_PlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB66E531B38CF5200107EDA /* Smart_PlannerTests.swift */; };
 		BCEC13EB1B3B745A00B7238A /* PlanListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC13EA1B3B745A00B7238A /* PlanListViewController.swift */; };
+		BCEC13ED1B3BF94A00B7238A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC13EC1B3BF94A00B7238A /* CalendarViewController.swift */; };
+		BCEC13EF1B3C37CA00B7238A /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC13EE1B3C37CA00B7238A /* CalendarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		BCB66E521B38CF5200107EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCB66E531B38CF5200107EDA /* Smart_PlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_PlannerTests.swift; sourceTree = "<group>"; };
 		BCEC13EA1B3B745A00B7238A /* PlanListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanListViewController.swift; sourceTree = "<group>"; };
+		BCEC13EC1B3BF94A00B7238A /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		BCEC13EE1B3C37CA00B7238A /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				BCB66E3A1B38CF5200107EDA /* AppDelegate.swift */,
 				BCB66E3F1B38CF5200107EDA /* AddPlanViewController.swift */,
 				BC762B651B3A906B001AE284 /* PlanDetailViewController.swift */,
+				BCEC13EC1B3BF94A00B7238A /* CalendarViewController.swift */,
+				BCEC13EE1B3C37CA00B7238A /* CalendarCell.swift */,
 				BCEC13EA1B3B745A00B7238A /* PlanListViewController.swift */,
 				BCB66E411B38CF5200107EDA /* Main.storyboard */,
 				BCB66E441B38CF5200107EDA /* Images.xcassets */,
@@ -237,11 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCEC13ED1B3BF94A00B7238A /* CalendarViewController.swift in Sources */,
 				BC762B6E1B3AD5C6001AE284 /* Plan.swift in Sources */,
 				BC762B621B3A200E001AE284 /* VenueClient.swift in Sources */,
 				BCB66E401B38CF5200107EDA /* AddPlanViewController.swift in Sources */,
 				BC762B661B3A906B001AE284 /* PlanDetailViewController.swift in Sources */,
 				BC762B6C1B3AD53C001AE284 /* CoreDataStackManager.swift in Sources */,
+				BCEC13EF1B3C37CA00B7238A /* CalendarCell.swift in Sources */,
 				BC2D8F391B38EC9300E46FAA /* Venue.swift in Sources */,
 				BCB66E3E1B38CF5200107EDA /* Smart_Planner.xcdatamodeld in Sources */,
 				BCEC13EB1B3B745A00B7238A /* PlanListViewController.swift in Sources */,

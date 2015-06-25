@@ -36,8 +36,6 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
-            //println(self.locationManager.location.coordinate.longitude)
-            //println(self.locationManager.location.coordinate.latitude)
             
         }
         

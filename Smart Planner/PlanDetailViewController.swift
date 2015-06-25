@@ -41,28 +41,6 @@ class PlanDetailViewController: UIViewController {
         annotation.title = selectedVenue.name
         mapView.addAnnotation(annotation)
         
-        let error: NSErrorPointer = nil
-
-        let fetchRequest = NSFetchRequest(entityName: "Plan")
-        
-        // Execute the Fetch Request
-        let results = sharedContext.executeFetchRequest(fetchRequest, error: error)
-        
-        // Check for Errors
-        if error != nil {
-            println("Error in fectchAllActors(): \(error)")
-        }else{
-            for result in results as! [Plan] {
-                println(result.name)
-                println(result.addr)
-                println(result.date)
-                println(result.photoUrl)
-            }
-        }
-
-        
-    }
-    @IBAction func updateDate(sender: UIDatePicker) {
     }
     
     @IBAction func addPlan(sender: UIButton) {

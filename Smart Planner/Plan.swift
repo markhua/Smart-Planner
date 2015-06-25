@@ -30,7 +30,7 @@ class Plan: NSManagedObject {
         let entity =  NSEntityDescription.entityForName("Plan", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         name = venue.name
-        addr = venue.name
+        addr = venue.addr
         photoUrl = "default"
         let imageurl = NSURL(string: venue.photoURL)!
         if let imageData = NSData(contentsOfURL: imageurl) {

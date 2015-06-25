@@ -107,11 +107,5 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.locationManager.stopUpdatingLocation()
     }
 
-    /*@IBAction func datePickerAction(sender: AnyObject) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        self.planDate = dateFormatter.stringFromDate(datePicker.date)
-        println(self.planDate!)
-    }*/
 }
 

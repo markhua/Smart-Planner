@@ -245,9 +245,6 @@
                                         <exclude reference="G9j-hf-RBp"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <action selector="updateDate:" destination="2Md-vy-Nr2" eventType="valueChanged" id="HZh-wO-y9y"/>
-                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -309,19 +306,33 @@
             </objects>
             <point key="canvasLocation" x="555" y="777"/>
         </scene>
-        <!--Plan List View Controller-->
+        <!--My Plan-->
         <scene sceneID="v4i-0x-kgH">
             <objects>
                 <tableViewController id="zOD-2K-Xoh" customClass="PlanListViewController" customModule="Smart_Planner" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Nbf-HU-mBA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="22" sectionFooterHeight="22" id="Nbf-HU-mBA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlanCell" id="mpQ-uz-dbJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlanCell" textLabel="jW7-v7-r2d" detailTextLabel="J3a-b1-uCX" rowHeight="112" style="IBUITableViewCellStyleSubtitle" id="mpQ-uz-dbJ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpQ-uz-dbJ" id="WSL-zw-n8s">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jW7-v7-r2d">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J3a-b1-uCX">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -330,7 +341,7 @@
                             <outlet property="delegate" destination="zOD-2K-Xoh" id="S4m-Hx-OQk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="IAh-eb-U0H">
+                    <navigationItem key="navigationItem" title="My Plan" id="IAh-eb-U0H">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="V5C-6z-0eb">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="show" id="OoR-17-lC8"/>

@@ -14,15 +14,13 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var queryTextField: UITextField!
     @IBOutlet weak var areaTextField: UITextField!
     @IBOutlet weak var areaSwitch: UISwitch!
     
     let locationManager = CLLocationManager()
-    var planDate: String?
-    
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +55,7 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.textLabel?.text = venue.name
             cell.detailTextLabel?.text = "\(venue.addr) \nRating: \(venue.rating)"
             cell.imageView!.image = venue.photo
+            self.activityIndicator.hidden = true
         }
         return cell
     }
@@ -86,7 +85,13 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func searchVenue(sender: UIButton) {
         VenueClient.sharedInstance().locations.removeAll(keepCapacity: true)
-        VenueClient.sharedInstance().getVenuesFromFoursquare(areaTextField.text, query: queryTextField.text, view: tableView)
+        VenueClient.sharedInstance().getVenuesFromFoursquare(areaTextField.text, query: queryTextField.text, view: tableView) {
+            success, result in
+            if !success {
+                self.notificationmsg(result!)
+            }
+        }
+        activityIndicator.hidden = false
     }
     
     //Display notification with message string

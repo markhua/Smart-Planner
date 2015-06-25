@@ -110,9 +110,14 @@
                                     <action selector="searchVenue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vH6-qB-Spf"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pWv-4f-6hy">
+                                <rect key="frame" x="287" y="332" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ldi-D5-eKo" firstAttribute="centerY" secondItem="pWv-4f-6hy" secondAttribute="centerY" constant="48" id="2tT-Tx-nap"/>
                             <constraint firstItem="dOr-hr-t3H" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="5dB-B1-tOO"/>
                             <constraint firstItem="Ldi-D5-eKo" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="140" id="9dA-SI-fAH"/>
                             <constraint firstItem="p0g-OL-bfm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="80" id="9tP-BV-e4t"/>
@@ -130,6 +135,7 @@
                             <constraint firstItem="p0g-OL-bfm" firstAttribute="top" secondItem="GQH-7P-3Sn" secondAttribute="bottom" constant="10" id="YVj-iM-aYj"/>
                             <constraint firstItem="dOr-hr-t3H" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="aYx-0j-f1I"/>
                             <constraint firstItem="n1d-hH-TdE" firstAttribute="top" secondItem="GQH-7P-3Sn" secondAttribute="bottom" constant="10" id="ehN-CZ-kka"/>
+                            <constraint firstItem="Ldi-D5-eKo" firstAttribute="centerX" secondItem="pWv-4f-6hy" secondAttribute="centerX" constant="-5" id="gtS-wf-evv"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Ldi-D5-eKo" secondAttribute="bottom" id="hTa-OB-JAS"/>
                             <constraint firstItem="p0g-OL-bfm" firstAttribute="leading" secondItem="NXM-0T-ryJ" secondAttribute="trailing" constant="66" id="jPy-01-nSb"/>
                             <constraint firstItem="WtU-Lp-8gi" firstAttribute="top" secondItem="GQH-7P-3Sn" secondAttribute="bottom" constant="18" id="jhg-xD-jCd"/>
@@ -148,6 +154,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LEQ-s4-AFR"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="pWv-4f-6hy" id="n9m-Nb-r5w"/>
                         <outlet property="areaSwitch" destination="n1d-hH-TdE" id="vvD-kU-Z8z"/>
                         <outlet property="areaTextField" destination="p0g-OL-bfm" id="fSM-jD-TBn"/>
                         <outlet property="queryTextField" destination="GQH-7P-3Sn" id="Y3H-71-NQw"/>

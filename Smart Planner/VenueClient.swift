@@ -15,7 +15,7 @@ class VenueClient {
     var latitude: Double?
     var longitude: Double?
     
-    func getVenuesFromFoursquare (near: String, query: String, view: UITableView){
+    func getVenuesFromFoursquare (near: String, query: String, view: UITableView, completionHandler: (success: Bool, Result: String?)->Void){
         
         var methodArguments = [
             "client_id": "2RIDSLX5BQGIYSYNJCQTTA1TMC0DA1HI4ICN3NV40RCAMV1R",
@@ -42,7 +42,7 @@ class VenueClient {
         
         let task = session.dataTaskWithRequest(request) {data, response, downloadError in
             if let error = downloadError {
-                println("Could not complete the request \(error)")
+                completionHandler(success: false, Result: "Could not complete the request \(error)")
             } else {
                 var parsingError: NSError? = nil
                 let parsedResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError) as! NSDictionary
@@ -53,14 +53,16 @@ class VenueClient {
                         if let items = group["items"] as? [[String: AnyObject]]{
                             for item in items {
                                 if let venue = item["venue"] as? [String: AnyObject]{
-                                    self.parseResult(venue, view: view)
+                                    self.parseResult(venue, view: view){ success, result in
+                                        if success {completionHandler(success: true, Result: nil)}
+                                    }
                                 }
                             }
                         }
                         
                     }
-                    
-                    
+                } else {
+                    completionHandler(success: false, Result: "Cant find key 'response' in \(response)")
                 }
             }
         }
@@ -70,7 +72,7 @@ class VenueClient {
         
     }
     
-    func parseResult (venue: [String: AnyObject], view: UITableView){
+    func parseResult (venue: [String: AnyObject], view: UITableView, completionHandler: (success: Bool, Result: String?)->Void){
         let venueName = venue["name"] as? String
         let venueRating = venue["rating"] as? Float
         var venueAddr: String?
@@ -102,6 +104,7 @@ class VenueClient {
                             dispatch_async(dispatch_get_main_queue()){
                                 view.reloadData()
                             }
+                            completionHandler(success: true, Result: nil)
                             
                         }
                     }

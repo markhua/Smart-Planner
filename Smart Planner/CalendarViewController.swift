@@ -16,6 +16,9 @@ class CalendarViewController: UIViewController {
     
     var sharedContext = CoreDataStackManager.sharedInstance().managedObjectContext!
     
+    var planInMonth = [Plan]()
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -53,11 +56,10 @@ class CalendarViewController: UIViewController {
                     dateFormatter.dateFormat = "MM"
                     let m = dateFormatter.stringFromDate(object.date)
                     if m.toInt()! - 1 == self.index {
+                        self.planInMonth.append(object)
                         dateFormatter.dateFormat = "dd"
                         let d = dateFormatter.stringFromDate(object.date)
-                        
                         self.dailystatus[d.toInt()! - 1] = 1
-                        println(y+m+d)
                     }
                 }
                 
@@ -94,6 +96,25 @@ class CalendarViewController: UIViewController {
         }
         return cell
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.planInMonth.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+ 
+        let CellIdentifier = "PlanCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! UITableViewCell
+        let plan = self.planInMonth[indexPath.row]
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd, HH:mm"
+        cell.textLabel?.text = dateFormatter.stringFromDate(plan.date)
+        cell.detailTextLabel?.text = "\(plan.name)\n\(plan.addr)"
+        
+        return cell
+    }
 
     @IBAction func nextMonth(sender: UIButton) {
         if index == 11 {
@@ -102,10 +123,7 @@ class CalendarViewController: UIViewController {
         } else {
             index++
         }
-        monthLabel.text = "\(month[index]), \(year)"
-        refreshMappingArray()
-        getPlanForCurrentMonth()
-        self.collectionView.reloadData()
+        reloadView()
     }
     
     @IBAction func lastMonth(sender: UIButton) {
@@ -115,10 +133,18 @@ class CalendarViewController: UIViewController {
         } else {
             index--
         }
+        reloadView()
+    }
+    
+    func reloadView(){
+        
         monthLabel.text = "\(month[index]), \(year)"
         refreshMappingArray()
+        self.planInMonth.removeAll(keepCapacity: false)
         getPlanForCurrentMonth()
         self.collectionView.reloadData()
+        self.tableView.reloadData()
+        
     }
     
     func refreshMappingArray () {

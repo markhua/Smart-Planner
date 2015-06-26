@@ -82,14 +82,27 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func searchVenue(sender: UIButton) {
-        VenueClient.sharedInstance().locations.removeAll(keepCapacity: true)
-        VenueClient.sharedInstance().getVenuesFromFoursquare(areaTextField.text, query: queryTextField.text, view: tableView) {
-            success, result in
-            if !success {
-                self.notificationmsg(result!)
-            }
+        if queryTextField.text == "" {
+            self.notificationmsg("The search field cannot be empty")
+        } else {
+            CLGeocoder().geocodeAddressString(self.areaTextField.text, completionHandler: {(placemarks, error)->Void in
+                if  error == nil || self.areaSwitch.on {
+                    
+                    VenueClient.sharedInstance().locations.removeAll(keepCapacity: true)
+                    VenueClient.sharedInstance().getVenuesFromFoursquare(self.areaTextField.text, query: self.queryTextField.text, view: self.tableView) {
+                        success, result in
+                        if !success {
+                            self.notificationmsg(result!)
+                        }
+                    }
+                    self.activityIndicator.hidden = false
+                    
+                } else {
+                    self.notificationmsg("Invalid area")
+                }
+            })
+    
         }
-        activityIndicator.hidden = false
     }
     
     //Display notification with message string

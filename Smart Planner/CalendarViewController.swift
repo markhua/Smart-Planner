@@ -13,6 +13,7 @@ class CalendarViewController: UIViewController {
     
     var index = 5
     var year = 2015
+    var firstdayindex = 0
     
     var sharedContext = CoreDataStackManager.sharedInstance().managedObjectContext!
     
@@ -23,18 +24,36 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
     var dailystatus = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        let date = NSDate()
+        
+        let currentyear = self.convertDateToString(date, format: "yyyy")
+        year = currentyear.toInt()!
+        let currentmonth = self.convertDateToString(date, format: "MM")
+        index = currentmonth.toInt()! - 1
+        
+        let firstdayofmonth = "\(currentyear)-\(currentmonth)-01"
+        
+        firstdayindex = getDayOfWeek(firstdayofmonth)! - 1
+        
         self.monthLabel.text = "\(month[index]), \(year)"
         var i = 0
-        while i < 31 {
+        while i < 38 {
             dailystatus.append(0)
             i++
         }
         getPlanForCurrentMonth()
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadView()
     }
     
     func getPlanForCurrentMonth (){
@@ -47,19 +66,17 @@ class CalendarViewController: UIViewController {
             abort()
         } else {
             for object in fetchedResultsController.fetchedObjects as! [Plan] {
-                var dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy"
-                let y = dateFormatter.stringFromDate(object.date)
+
+                let y = self.convertDateToString(object.date, format: "yyyy")
                 
                 if y.toInt()! == self.year {
-                    
-                    dateFormatter.dateFormat = "MM"
-                    let m = dateFormatter.stringFromDate(object.date)
+
+                    let m = self.convertDateToString(object.date, format: "MM")
                     if m.toInt()! - 1 == self.index {
                         self.planInMonth.append(object)
-                        dateFormatter.dateFormat = "dd"
-                        let d = dateFormatter.stringFromDate(object.date)
-                        self.dailystatus[d.toInt()! - 1] = 1
+
+                        let d = self.convertDateToString(object.date, format: "dd")
+                        self.dailystatus[d.toInt()! - 1 + firstdayindex] = 1
                     }
                 }
                 
@@ -78,22 +95,54 @@ class CalendarViewController: UIViewController {
         return fetchedResultsController
         }()
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // Lay out the collection view so that cells take up 1/3 of the width
+        let layout : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0 , left: 1, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 0
+        
+        let width = floor(self.collectionView.frame.size.width/7)
+        layout.itemSize = CGSize(width: width, height: width)
+        collectionView.collectionViewLayout = layout
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if index == 1 { return 28 }
-        if index == 3 || index == 5 || index == 8 || index == 10 {
-            return 30
+        
+        if index == 1 {
+            if year % 4 == 0 {
+                if year % 100 == 0 && year % 400 != 0 {
+                    return 28 + firstdayindex
+                } else {
+                    return 29 + firstdayindex
+                }
+            } else {
+                return 28 + firstdayindex
+            }
         }
-        return 31
+        if index == 3 || index == 5 || index == 8 || index == 10 {
+            return 30 + firstdayindex
+        }
+        return 31 + firstdayindex
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DayCell", forIndexPath: indexPath) as! CalendarCell
-        cell.number.text = "\(indexPath.row + 1)"
-        if self.dailystatus[indexPath.row] == 1 {
-            cell.backgroundColor = UIColor.yellowColor()
+        let dayinmonth = indexPath.row + 1 - firstdayindex
+        if dayinmonth > 0 {
+            cell.number.text = "\(dayinmonth)"
+            if self.dailystatus[indexPath.row] == 1 {
+                cell.backgroundColor = UIColor.yellowColor()
+            } else {
+                cell.backgroundColor = UIColor(red: 1.0000, green: 0.9451, blue: 0.8000, alpha: 1)
+            }
         } else {
+            cell.number.text = ""
             cell.backgroundColor = UIColor(red: 1.0000, green: 0.9451, blue: 0.8000, alpha: 1)
         }
+        
         return cell
     }
     
@@ -114,6 +163,24 @@ class CalendarViewController: UIViewController {
         cell.detailTextLabel?.text = "\(plan.name)\n\(plan.addr)"
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        switch (editingStyle) {
+        case .Delete:
+            
+            let plan = self.planInMonth[indexPath.row]
+            planInMonth.removeAtIndex(indexPath.row)
+            self.deleteFileFromPath(plan.photoUrl)
+            sharedContext.deleteObject(plan)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            CoreDataStackManager.sharedInstance().saveContext()
+            reloadView()
+
+        default:
+            break
+        }
     }
 
     @IBAction func nextMonth(sender: UIButton) {
@@ -136,10 +203,20 @@ class CalendarViewController: UIViewController {
         reloadView()
     }
     
+    func convertDateToString(date: NSDate, format: String) -> String {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.stringFromDate(date)
+        
+    }
+    
     func reloadView(){
         
         monthLabel.text = "\(month[index]), \(year)"
+        let firstdayofmonth = "\(year)-\(month[index])-01"
+        firstdayindex = getDayOfWeek(firstdayofmonth)! - 1
         refreshMappingArray()
+        
         self.planInMonth.removeAll(keepCapacity: false)
         getPlanForCurrentMonth()
         self.collectionView.reloadData()
@@ -154,6 +231,31 @@ class CalendarViewController: UIViewController {
             i++
         }
         
+    }
+    
+    func deleteFileFromPath(imageURL: String){
+        let filename = imageURL.lastPathComponent
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let pathArray = [dirPath, filename]
+        let fileURL =  NSURL.fileURLWithPathComponents(pathArray)!
+        
+        var fileManager: NSFileManager = NSFileManager.defaultManager()
+        var error: NSErrorPointer = NSErrorPointer()
+        fileManager.removeItemAtPath(fileURL.path!, error: error)
+    }
+    
+    func getDayOfWeek(today:String)->Int? {
+        
+        let formatter  = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        if let todayDate = formatter.dateFromString(today) {
+            let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+            let myComponents = myCalendar.components(.CalendarUnitWeekday, fromDate: todayDate)
+            let weekDay = myComponents.weekday
+            return weekDay
+        } else {
+            return nil
+        }
     }
 
 }

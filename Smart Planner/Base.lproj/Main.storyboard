@@ -503,7 +503,7 @@
             </objects>
             <point key="canvasLocation" x="1059" y="-925"/>
         </scene>
-        <!--My Plan-->
+        <!--My Activities-->
         <scene sceneID="v4i-0x-kgH">
             <objects>
                 <tableViewController id="zOD-2K-Xoh" customClass="PlanListViewController" customModule="Smart_Planner" customModuleProvider="target" sceneMemberID="viewController">
@@ -538,7 +538,7 @@
                             <outlet property="delegate" destination="zOD-2K-Xoh" id="S4m-Hx-OQk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Plan" id="IAh-eb-U0H">
+                    <navigationItem key="navigationItem" title="My Activities" id="IAh-eb-U0H">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="V5C-6z-0eb">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="show" id="OoR-17-lC8"/>
@@ -591,6 +591,6 @@
         <image name="header" width="475" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fdf-e9-IUy"/>
+        <segue reference="OoR-17-lC8"/>
     </inferredMetricsTieBreakers>
 </document>

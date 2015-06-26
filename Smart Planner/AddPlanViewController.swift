@@ -119,7 +119,6 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Get the current location and set to VenueClient
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
-        println("locations = \(locValue.latitude) \(locValue.longitude)")
         VenueClient.sharedInstance().latitude = locValue.latitude
         VenueClient.sharedInstance().longitude = locValue.longitude
         self.locationManager.stopUpdatingLocation()

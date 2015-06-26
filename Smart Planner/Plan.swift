@@ -41,7 +41,7 @@ class Plan: NSManagedObject {
             let filepath = imageFileURL(venue.photoURL)
             imageData.writeToURL(filepath, atomically: true)
             photoUrl = filepath.path!
-            println(photoUrl)
+            //println(photoUrl)
         }
         
         date = plandate

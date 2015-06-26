@@ -39,7 +39,7 @@ class VenueClient {
     
         let session = NSURLSession.sharedSession()
         let urlString = "https://api.foursquare.com/v2/venues/explore" + escapedParameters(methodArguments)
-        println(urlString)
+        //println(urlString)
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         

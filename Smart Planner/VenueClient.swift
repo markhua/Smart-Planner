@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// VenueClient class contains necessary methods and parameters to get data from the Foursquare API
+
 class VenueClient {
     
     var locations = [Venue]()
@@ -28,12 +30,13 @@ class VenueClient {
             "venuePhotos": "1"
         ]
         
+        // Round the latitude and longitude to the nearest 1/10
         if latitude != nil && longitude != nil {
             let lat = Double(round(10*latitude!)/10)
             let long = Double(round(10*longitude!)/10)
             methodArguments["ll"] = "\(lat),\(long)"
         }
-        
+    
         let session = NSURLSession.sharedSession()
         let urlString = "https://api.foursquare.com/v2/venues/explore" + escapedParameters(methodArguments)
         println(urlString)
@@ -71,6 +74,8 @@ class VenueClient {
         
         
     }
+    
+    // Parse the result and create Venue objects
     
     func parseResult (venue: [String: AnyObject], view: UITableView, completionHandler: (success: Bool, Result: String?)->Void){
         let venueName = venue["name"] as? String

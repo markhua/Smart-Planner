@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// This class is used to create objects for Venue search results from the network
+
 class Venue {
     var name: String
     var photo: UIImage

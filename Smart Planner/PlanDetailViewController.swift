@@ -11,6 +11,8 @@ import Foundation
 import MapKit
 import CoreData
 
+// In the PlanDetailViewController, the user select the date and save the plan
+
 class PlanDetailViewController: UIViewController {
     
     var selectedVenueIndex: Int?
@@ -25,13 +27,15 @@ class PlanDetailViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        // Get the selected venue using the index passed from the AddPlanViewController
         let selectedVenue = VenueClient.sharedInstance().locations[selectedVenueIndex!]
     
         self.imageView.image  = selectedVenue.photo
         self.nameTextField.text = selectedVenue.name
         self.AddrTextField.text = "\(selectedVenue.addr) \nRating: \(selectedVenue.rating)"
         
-        // Set the mapView on the top and add the pin
+        // Set the mapView and add the pin
         var center =  CLLocationCoordinate2D(latitude: selectedVenue.lat, longitude: selectedVenue.long)
         var span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
@@ -43,6 +47,7 @@ class PlanDetailViewController: UIViewController {
         
     }
     
+    // Save the plan and navigate back to the root controller
     @IBAction func addPlan(sender: UIButton) {
         
         let selectedVenue = VenueClient.sharedInstance().locations[selectedVenueIndex!]

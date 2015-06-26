@@ -30,7 +30,7 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         
-        // For use in foreground
+        // Get user's current location
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled(){
             locationManager.delegate = self
@@ -62,7 +62,7 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
         return VenueClient.sharedInstance().locations.count
     }
     
-    //Open student's URL in browser after clicking each cell
+    // Navigate to the detail view controller to make the plan after selecting the venue
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanDetailViewController")! as! PlanDetailViewController
@@ -81,6 +81,7 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    // The two textfields' text are verified and then passed to the search action
     @IBAction func searchVenue(sender: UIButton) {
         if queryTextField.text == "" {
             self.notificationmsg("The search field cannot be empty")
@@ -105,7 +106,7 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    //Display notification with message string
+    // Display notification with message string
     func notificationmsg (msgstring: String)
     {
         dispatch_async(dispatch_get_main_queue()){
@@ -115,6 +116,7 @@ class AddPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    // Get the current location and set to VenueClient
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
         println("locations = \(locValue.latitude) \(locValue.longitude)")

@@ -12,6 +12,8 @@ import CoreData
 
 @objc(Plan)
 
+// This is the class to store saved Plan, it's also stored in Core data
+
 class Plan: NSManagedObject {
 
     @NSManaged var name: String
@@ -33,6 +35,8 @@ class Plan: NSManagedObject {
         addr = venue.addr
         photoUrl = "default"
         let imageurl = NSURL(string: venue.photoURL)!
+        
+        //Write the image file to document directory
         if let imageData = NSData(contentsOfURL: imageurl) {
             let filepath = imageFileURL(venue.photoURL)
             imageData.writeToURL(filepath, atomically: true)

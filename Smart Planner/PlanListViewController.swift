@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+// Dispaly the plan list in a table view
+
 class PlanListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var sharedContext = CoreDataStackManager.sharedInstance().managedObjectContext!
@@ -38,6 +40,7 @@ class PlanListViewController: UITableViewController, NSFetchedResultsControllerD
     lazy var fetchedResultsController: NSFetchedResultsController = {
         
         let fetchRequest = NSFetchRequest(entityName: "Plan")
+        // Fetched plans are sorted by date ascendingly
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -57,7 +60,6 @@ class PlanListViewController: UITableViewController, NSFetchedResultsControllerD
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! UITableViewCell
         
-        // Display image if its path is already set in Core Data
         if plan.photoUrl != "default" {
             
             // Build the filepath again because the document path in iOS simulator is likely to change in every run

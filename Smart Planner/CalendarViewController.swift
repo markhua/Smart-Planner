@@ -11,12 +11,18 @@ import CoreData
 
 class CalendarViewController: UIViewController {
     
+    // index: the current month index
     var index = 5
+    
+    // year: the current year
     var year = 2015
+    
+    // firstdayindex: the weekday index the first day of month is
     var firstdayindex = 0
     
     var sharedContext = CoreDataStackManager.sharedInstance().managedObjectContext!
     
+    // Plans in the selected month
     var planInMonth = [Plan]()
     
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +31,7 @@ class CalendarViewController: UIViewController {
     
     let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
+    // An array of 0 or 1, 0 means no event on that day, 1 means there is.
     var dailystatus = [Int]()
     
     override func viewDidLoad() {
@@ -32,6 +39,7 @@ class CalendarViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         let date = NSDate()
         
+        // Set the calendar to the current month
         let currentyear = self.convertDateToString(date, format: "yyyy")
         year = currentyear.toInt()!
         let currentmonth = self.convertDateToString(date, format: "MM")
@@ -43,6 +51,8 @@ class CalendarViewController: UIViewController {
         
         self.monthLabel.text = "\(month[index]), \(year)"
         var i = 0
+        
+        // 38 covers the maximum number of cells required in each month
         while i < 38 {
             dailystatus.append(0)
             i++
@@ -56,6 +66,7 @@ class CalendarViewController: UIViewController {
         reloadView()
     }
     
+    // Get the plans in the month indicated by the selected month/year
     func getPlanForCurrentMonth (){
         var error: NSError?
         
@@ -76,6 +87,8 @@ class CalendarViewController: UIViewController {
                         self.planInMonth.append(object)
 
                         let d = self.convertDateToString(object.date, format: "dd")
+                        
+                        // Set the value at the specific index to 1 to indicate there's a plan
                         self.dailystatus[d.toInt()! - 1 + firstdayindex] = 1
                     }
                 }
@@ -98,7 +111,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        // Lay out the collection view so that cells take up 1/3 of the width
+        // Lay out the collection view so that cells take up 1/7 of the width
         let layout : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0 , left: 1, bottom: 0, right: 0)
         layout.minimumLineSpacing = 1
@@ -130,6 +143,8 @@ class CalendarViewController: UIViewController {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DayCell", forIndexPath: indexPath) as! CalendarCell
+        
+        // Display the "Day" number in each cell since the first day of month
         let dayinmonth = indexPath.row + 1 - firstdayindex
         if dayinmonth > 0 {
             cell.number.text = "\(dayinmonth)"
@@ -210,6 +225,7 @@ class CalendarViewController: UIViewController {
         
     }
     
+    // reloadView method refresh the selected month/year, the calendar layout, the table view and collection view
     func reloadView(){
         
         monthLabel.text = "\(month[index]), \(year)"
@@ -244,6 +260,7 @@ class CalendarViewController: UIViewController {
         fileManager.removeItemAtPath(fileURL.path!, error: error)
     }
     
+    // Returns the weekday index from specific date
     func getDayOfWeek(today:String)->Int? {
         
         let formatter  = NSDateFormatter()
